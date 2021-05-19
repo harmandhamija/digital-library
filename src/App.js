@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     axios({
       method: 'GET',
-      url: "http://openlibrary.org/search.json?",
+      url: "https://openlibrary.org/search.json?",
       dataResponse: "JSON",
       params: {
         q: bookTitle

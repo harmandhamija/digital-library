@@ -1,7 +1,5 @@
 // BookCard.js
 
-import NoPoster from '../assets/NoPoster.png';
-
 const BookCard = (props) => {
     const { book } = props;
 
