@@ -6,8 +6,7 @@ import Form from './components/Form';
 import DisplayBooks from './components/DisplayBooks';
 import SortByYear from './components/SortByYear';
 import SortByTitle from './components/SortByTitle';
-// import SortByYear from './components/SortByYear';
-// import SortByTitle from './components/SortByTitle';
+import Footer from './components/Footer'; 
 
 function App() {
 
@@ -57,29 +56,32 @@ function App() {
       </header>
 
       <div className="wrapper">
-
-      <main>
-      {
-          isLoading
-          ? <div className='loadingBar'>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          : books.length === 0
-          ? <div className="error-message">
-              <p>No results found..Please try again or check back later!</p>
+        <main>
+        {
+            isLoading
+            ? <div className='loadingBar'>
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
-          :sortAlpha
-          ?<SortByTitle books={books} bookTitle={bookTitle}/>
-          :sortYear
-          ?<SortByYear books={books} bookTitle={bookTitle} />
-          :<DisplayBooks books={books} sortAlpha={sortAlpha} sortYear={sortYear} bookTitle={bookTitle} />
-        }
-        
-      </main>
-
+            : books.length === 0
+            ? <div className="error-message">
+                <p>No results found..Please try again or check back later!</p>
+              </div>
+            :sortAlpha
+            ?<SortByTitle books={books} bookTitle={bookTitle}/>
+            :sortYear
+            ?<SortByYear books={books} bookTitle={bookTitle} />
+            :<DisplayBooks books={books} sortAlpha={sortAlpha} sortYear={sortYear} bookTitle={bookTitle} />
+          }
+        </main>
       </div>
+
+      <footer>
+        <div className="wrapper">
+          <Footer />
+        </div>
+      </footer>
 
     </div>
   );

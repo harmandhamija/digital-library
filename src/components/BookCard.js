@@ -9,7 +9,7 @@ const BookCard = (props) => {
         <div className="display-books" key={book.key}>
             
             <div className="book-cover">
-                <img src={`http://covers.openlibrary.org/b/isbn/${book.isbn[0]}-M.jpg`} alt=""></img>
+                <img src={`http://covers.openlibrary.org/b/isbn/${book.isbn[0]}-M.jpg`} alt={`poster of ${book.title}`}></img>
             </div>
 
             <div className="book-content">
