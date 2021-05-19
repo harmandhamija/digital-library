@@ -16,29 +16,76 @@ html{
   color: black;
 }
 
+body{
+  font-size: 1.6rem;
+}
+
 .wrapper{
   width: 80%;
   margin: 0 auto;
   max-width: 1200px;
 }
 
-h1{
+h1,
+h2,
+h3,
+p{
   margin: 0;
   padding: 0;
+}
+
+h1{
+  font-size: 4rem;
+}
+
+button{
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form input{
+  border-radius: 5px;
+  border: 1px solid #cfbaa6;
+  text-align: center;
+  padding: 10px;
+}
+
+form button{
+  width: 150px;
+  padding: 10px;
+  background-color: #cfbaa6;
 }
 
 .form-section{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20vh;
+}
+
+.form-container{
+  margin-top: 5rem;
 }
 
 main{
-  display: flex;
-  flex-wrap: wrap;
+  min-height: 50vh;
+  border-radius: 10px;
+  /* display: flex;
+  flex-wrap: wrap; */
   /* justify-content: space-between; */
   margin-top: 10%;
   background-color: #f3f2f1;
+}
+
+
+.display-message{
+  margin-left: 2.5%;
+  padding-top: 5px;
+}
+
+.display-books-container{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .display-books{
@@ -60,6 +107,68 @@ main{
 
 .book-content{
   background-color: #d3d3d3;
+}
+
+.loadingBar{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.loadingBar div{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.loadingBar div:nth-child(1){
+  animation: loadingDiv1 0.7s infinite;
+}
+
+.loadingBar div:nth-child(2){
+  animation: loadingDiv2 0.7s infinite;
+}
+
+.loadingBar div:nth-child(3){
+  animation: loadingDiv3 0.7s infinite;
+}
+
+/* animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loadingDiv1 {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes loadingDiv2 {
+    0%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes loadingDiv3 {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0.5);
+    }
 }
 
 

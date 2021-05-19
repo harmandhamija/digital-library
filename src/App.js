@@ -17,6 +17,8 @@ function App() {
   const [sortAlpha, setSortAlpha] = useState(false);
   const [sortYear, setSortYear] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     axios({
       method: 'GET',
@@ -33,9 +35,10 @@ function App() {
       })
       setBooks(filteredResponse.slice(0, 20));
       // limit the results to 20.
-      console.log(books);
+      setIsLoading(false);
     }).catch(error => {
       alert("No data received.Please try again later!");
+      setIsLoading(false);
     })
   }, [bookTitle]);
 
@@ -49,15 +52,31 @@ function App() {
     <div className="app">
       <header>
         <div className="wrapper">
-          <h1>the book factory</h1>
-          <Form getUserInput={getUserInput} setSortAlpha={setSortAlpha} setSortYear={setSortYear} />
+          <Form getUserInput={getUserInput} setSortAlpha={setSortAlpha} setSortYear={setSortYear} setIsLoading={setIsLoading} />
         </div>
       </header>
 
       <div className="wrapper">
 
       <main>
-        <DisplayBooks books={books} sortAlpha={sortAlpha} sortYear={sortYear} />
+      {
+          isLoading
+          ? <div className='loadingBar'>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          : books.length === 0
+          ? <div className="error-message">
+              <p>No results found..Please try again or check back later!</p>
+            </div>
+          :sortAlpha
+          ?<SortByTitle books={books} bookTitle={bookTitle}/>
+          :sortYear
+          ?<SortByYear books={books} bookTitle={bookTitle} />
+          :<DisplayBooks books={books} sortAlpha={sortAlpha} sortYear={sortYear} bookTitle={bookTitle} />
+        }
+        
       </main>
 
       </div>

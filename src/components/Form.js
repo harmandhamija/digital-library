@@ -13,7 +13,19 @@ const Form = (props) => {
         event.preventDefault();
         props.getUserInput(input);
         setInput('');
+        props.setIsLoading(true);
     }
+
+    const handleClickAlpha = (event) => {
+        props.setSortYear(false)
+        props.setSortAlpha(true)
+    }
+
+    const handleClickYear = (event) => {
+        props.setSortAlpha(false)
+        props.setSortYear(true)
+    }
+
 
     return (
         <section className="form-section">
@@ -25,6 +37,9 @@ const Form = (props) => {
 
                     <button type="submit">Search</button>
                 </form>
+
+                <button onClick={handleClickAlpha}>sort alphabetically</button>
+                <button onClick={handleClickYear}>sort by year</button>
 
             </div>
         </section>
