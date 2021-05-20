@@ -40,8 +40,17 @@ h1{
   text-align: center;
 }
 
+h2{
+  font-size: 2rem;
+}
+
+h3{
+  font-size: 1.7rem;
+}
+
+h3,
 p{
-  font-size: 1.8rem;
+  margin-top: 0.5rem;
 }
 
 a{
@@ -50,22 +59,16 @@ a{
   outline: none;
 }
 
-button{
-  cursor: pointer;
-  border-radius: 5px;
-  border: none;
-}
-
 .form-container{
   margin-top: 5rem;
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 form{
-  width: 50%;
+  /* width: 50%; */
   display: flex;
   justify-content: center;
 }
@@ -75,14 +78,17 @@ form input{
   border: 1px solid #cfbaa6;
   outline: none;
   text-align: center;
-  padding: 5px;
-  width: 50%;
+  padding: 8px;
+  width: 75%;
 }
 
 form button{
-  width: 150px;
-  padding: 5px;
+  /* width: 150px; */
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
   background-color: #cfbaa6;
+  cursor: pointer;
 }
 
 .form-section{
@@ -106,7 +112,7 @@ main{
   min-height: 50vh;
   overflow-x: scroll;
   border-radius: 10px;
-  margin: 10% 0 5%;
+  margin: 10rem 0 5rem;
   background-color: #f3f2f1;
 }
 
@@ -120,12 +126,12 @@ main{
 .display-books-container{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .display-books{
-  width: 20%;
-  margin: 0 2.5% 5%;
+  width: 250px;
+  margin: 4rem 1rem;
 }
 
 .book-cover{
@@ -245,9 +251,10 @@ footer img:focus{
 
 /* media queries */
 
-@media(max-width:1050px) {
-  .display-books{
-    width: 25%;
+@media(max-width:675px) {
+  .display-message{
+    text-align: center;
+    margin-left: 0;
   }
 
 }

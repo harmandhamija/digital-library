@@ -17,7 +17,7 @@ const SortByTitle = (props) => {
         <section>
 
             <div className="display-message">
-                <p>Currently displaying results for '<strong>{bookTitle}</strong>'</p>
+                <p>Currently displaying results for '<strong>{bookTitle}</strong>' (sorted alphabetically by title)</p>
             </div>
 
             <div className="display-books-container">

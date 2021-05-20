@@ -46,6 +46,7 @@ function App() {
     setSortYear(sortByYear);
     setSortAlpha(sortByAlpha);
   }
+  // callback function to receive userInput & sortBy information from form.js
 
   return (
     <div className="app">

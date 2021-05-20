@@ -12,7 +12,7 @@ const BookCard = (props) => {
 
             <div className="book-content">
                 <h2>{book.title}</h2>
-                <h3>{book.author_name[0]}</h3>
+                <h3>By - {book.author_name[0]}</h3>
                 <p>Published - {book.publish_year[0]}</p>
             </div>
 
