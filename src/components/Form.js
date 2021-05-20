@@ -27,7 +27,7 @@ const Form = (props) => {
     }
 
     return (
-        <section className="form-section">
+        <section className="form-section" data-testid="form">
             <h1>Welcome to the digital book library!</h1>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
