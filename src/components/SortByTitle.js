@@ -6,6 +6,7 @@ const SortByTitle = (props) => {
 
     const { books, bookTitle } = props;
 
+    // function to sort data by title
     const sortByTitle = books.sort((a, b) => {
         if (a.title < b.title)
             return -1;

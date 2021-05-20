@@ -3,8 +3,10 @@
 import BookCard from "./BookCard";
 
 const DisplayBooks = (props) => {
+
     const { books, bookTitle } = props;
-    
+    // destructuring from props
+
     return(
         <section>
             <div className="display-message">

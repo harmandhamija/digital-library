@@ -59,6 +59,12 @@ a{
   outline: none;
 }
 
+button{
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
 .form-container{
   margin-top: 5rem;
   /* width: 100%; */
@@ -83,12 +89,8 @@ form input{
 }
 
 form button{
-  /* width: 150px; */
   padding: 8px 15px;
-  border-radius: 5px;
-  border: none;
   background-color: #cfbaa6;
-  cursor: pointer;
 }
 
 .form-section{
@@ -106,6 +108,7 @@ form button{
 .sort-buttons button{
   margin: 0 0.5rem;
   background-color: #dbf0ef;
+  padding: 3px 10px;
 }
 
 main{

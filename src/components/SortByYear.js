@@ -6,6 +6,7 @@ const SortByYear = (props) => {
 
     const { books, bookTitle } = props;
 
+    // function to sort data by published year
     const sortByYear = books.sort((a, b) => {
         if (a.publish_year[0] < b.publish_year[0])
             return 1;
