@@ -133,12 +133,12 @@ main{
 }
 
 .display-books{
-  width: 185px;
-  margin: 4rem 3rem;
+  width: 250px;
+  margin: 4rem 1rem;
 }
 
 .book-cover{
-  height: 270px;
+  height: 300px;
   width: 100%;
   background-color: gray;
   border-radius: 5px 5px 0 0;
@@ -153,7 +153,7 @@ main{
 .book-content{
   background-color: #d3d3d3;
   text-align: center;
-  min-height: 10rem;
+  min-height: 25%;
   border-radius: 0 0 5px 5px;
 }
 
@@ -254,13 +254,6 @@ footer img:focus{
 
 /* media queries */
 
-@media(max-width:1225px) {
-  .display-books{
-    margin: 4rem 1.5rem;
-  }
-
-}
-
 @media(max-width:675px) {
   .display-message{
     text-align: center;
@@ -268,13 +261,5 @@ footer img:focus{
   }
 
 }
-
-@media(max-width:500px) {
-  .display-books{
-    width: 200px;
-  }
-
-}
-
 
 
