@@ -100,15 +100,15 @@ form button{
   margin-top: 20vh;
 }
 
-.sort-buttons{
+.form-select{
   margin-top: 2rem;
   font-size: 1.3rem;
 }
 
-.sort-buttons button{
-  margin: 0 0.5rem;
+select{
   background-color: #dbf0ef;
-  padding: 3px 10px;
+  border: none;
+  border-radius: 5px;
 }
 
 main{

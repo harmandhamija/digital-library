@@ -3,7 +3,11 @@ import { useState } from 'react';
 
 const Form = (props) => {
 
+    const { getUserInput, setIsLoading, setSortBooks } = props;
+
     const [ input, setInput ] = useState('');
+    const [ selectOption, setSelectOption] = useState('');
+
 
     const handleInput = (event) => {
         setInput(event.target.value);
@@ -11,19 +15,15 @@ const Form = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.getUserInput(input);
+        getUserInput(input);
         setInput('');
-        props.setIsLoading(true);
+        setIsLoading(true);
+        setSelectOption('');
     }
 
-    const handleClickAlpha = (event) => {
-        props.setSortYear(false)
-        props.setSortAlpha(true)
-    }
-
-    const handleClickYear = (event) => {
-        props.setSortAlpha(false)
-        props.setSortYear(true)
+    const handleChange = (event) => {
+        setSelectOption(event.target.value);
+        setSortBooks(event.target.value);
     }
 
     return (
@@ -31,15 +31,20 @@ const Form = (props) => {
             <h1>Welcome to the digital book library!</h1>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="Enter book title" className="sr-only">search for a book</label>
-                    <input type="text" name="Enter book title" id="Enter book title" value ={input} placeholder="search for a book" onChange={handleInput} required></input>
+                    <label htmlFor="EnterBookTitle" className="sr-only">search for a book</label>
+                    <input type="text" name="EnterBookTitle" id="EnterBookTitle" value ={input} placeholder="search for a book" onChange={handleInput} required></input>
                     <button type="submit">Search</button>
                 </form>
                 
-                <div className="sort-buttons">
-                    <button onClick={handleClickYear}>sort by year</button>
-                    <button onClick={handleClickAlpha}>sort alphabetically</button>
-                </div>
+                <form className="form-select">
+                    <label htmlFor="sortData" className="sr-only">Sort Data</label>
+                    <select name="sortData" id="sortData" value={selectOption} onChange={handleChange}>
+                        <option value="disabled">sort by</option>
+                        <option value="none">none</option>
+                        <option value="sortByYear">year</option>
+                        <option value="sortByTitle">title</option>
+                    </select>
+                </form>
             </div>
         </section>
     )
