@@ -2,7 +2,7 @@
 
 const BookCard = (props) => {
     const { book } = props;
-
+    
     return(
         <div className="display-books" key={book.key}>
             
@@ -15,6 +15,10 @@ const BookCard = (props) => {
                 <h3>By - {book.author_name[0]}</h3>
                 <p>Published - {book.publish_year[0]}</p>
             </div>
+
+            {/* <div className="book-save">
+                <button onClick={handleClick}>Save</button>
+            </div> */}
 
         </div>
     )

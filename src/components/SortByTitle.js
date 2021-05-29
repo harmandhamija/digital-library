@@ -7,7 +7,8 @@ const SortByTitle = (props) => {
     const { books, bookTitle } = props;
 
     const sortByTitleArray = [...books];
-
+    // making a copy of books array to sort results
+    
     // function to sort data alphabetically by title
     const sortByTitle = sortByTitleArray.sort((a, b) => {
         if (a.title < b.title)

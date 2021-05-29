@@ -6,7 +6,7 @@ const Form = (props) => {
     const { getUserInput, setIsLoading, setSortBooks } = props;
 
     const [ input, setInput ] = useState('');
-    const [ selectOption, setSelectOption] = useState('');
+    const [ sortOption, setSortOption] = useState('');
 
 
     const handleInput = (event) => {
@@ -18,11 +18,11 @@ const Form = (props) => {
         getUserInput(input);
         setInput('');
         setIsLoading(true);
-        setSelectOption('');
+        setSortOption('');
     }
 
     const handleChange = (event) => {
-        setSelectOption(event.target.value);
+        setSortOption(event.target.value);
         setSortBooks(event.target.value);
     }
 
@@ -37,9 +37,9 @@ const Form = (props) => {
                 </form>
                 
                 <form className="form-select">
-                    <label htmlFor="sortData" className="sr-only">Sort Data</label>
-                    <select name="sortData" id="sortData" value={selectOption} onChange={handleChange}>
-                        <option value="disabled">sort by</option>
+                    <label htmlFor="sortData">Sort by</label>
+                    <select name="sortData" id="sortData" value={sortOption} onChange={handleChange}>
+                        {/* <option value="disabled" disabled>sort by</option> */}
                         <option value="none">none</option>
                         <option value="sortByYear">year</option>
                         <option value="sortByTitle">title</option>

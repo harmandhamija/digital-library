@@ -91,6 +91,11 @@ form input{
 form button{
   padding: 8px 15px;
   background-color: #cfbaa6;
+  transition: all 0.8s ease;
+}
+
+form button:hover{
+  background-color: #c7b2d3;
 }
 
 .form-section{
@@ -109,6 +114,11 @@ select{
   background-color: #dbf0ef;
   border: none;
   border-radius: 5px;
+}
+
+.form-select label{
+  margin-right: 1rem;
+  font-size: 1.5rem;
 }
 
 main{
@@ -155,6 +165,22 @@ main{
   text-align: center;
   min-height: 25%;
   border-radius: 0 0 5px 5px;
+}
+
+/* .book-save{
+  display: flex;
+  justify-content: center;
+}
+
+.book-save button{
+  margin: 1rem 0;
+  padding: 10px 30px;
+  background-color: #cfbaa6;
+  transition: all 0.8s ease;
+} */
+
+.book-save button:hover{
+  background-color: #c7b2d3;
 }
 
 .loadingBar{

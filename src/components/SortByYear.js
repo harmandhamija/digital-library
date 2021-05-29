@@ -7,6 +7,7 @@ const SortByYear = (props) => {
     const { books, bookTitle } = props;
 
     const sortByYearArray = [...books];
+    // making a copy of books array to sort results
 
     // function to sort data by published year
     const sortByYear = sortByYearArray.sort((a, b) => {

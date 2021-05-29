@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from './components/Form';
 import DisplayBooks from './components/DisplayBooks';
-import Footer from './components/Footer'; 
+import Footer from './components/Footer';
 
 function App() {
 
