@@ -12,6 +12,8 @@ function App() {
   const [sortBooks, setSortBooks] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
+  const[filterByYear, setFilterByYear] = useState([]);
+
   useEffect(() => {
     axios({
       method: 'GET',
@@ -22,13 +24,25 @@ function App() {
       }
     }).then((response) => {
       response = response.data.docs
-      let filteredResponse = response.filter((book)=> {
+      const filteredResponse = response.filter((book)=> {
         return book.author_name && book.publish_year && book.isbn;
         // filtering objects with properties of author_name, publish_year & isbn
       })
-      setBooks(filteredResponse.slice(0, 20));
+      const filteredBooksArray = [...filteredResponse.slice(0, 20)];
       // limit the results to 20.
+      setBooks(filteredBooksArray);
       setIsLoading(false);
+
+      // mapping over filtered array to get available years & key for filtering results
+      const bookPublishedYear = filteredBooksArray.map((filteredBook)=> {
+        return {year: filteredBook.publish_year[0],
+                key: filteredBook.key
+                // returned an object with year & key which is passed to Form.js component for filterByYear form options.
+                // this could have been done by pushing an object in the new array as well, but this is the option which I felt more comfortbale with.
+                // key will be needed when mapping over the object for options
+        };
+      })
+      setFilterByYear(bookPublishedYear);
     }).catch((error) => {
       alert("No data received.Please try again later!");
       setIsLoading(false);
@@ -45,7 +59,7 @@ function App() {
     <div className="app">
       <header>
         <div className="wrapper">
-          <Form getUserInput={getUserInput} setSortBooks={setSortBooks} setIsLoading={setIsLoading} />
+          <Form getUserInput={getUserInput} setSortBooks={setSortBooks} setIsLoading={setIsLoading} filterByYear={filterByYear} />
         </div>
       </header>
 
