@@ -1,13 +1,13 @@
-// Form.js
+// Forms.js
 import { useState } from 'react';
 
-const Form = (props) => {
+const Forms = (props) => {
 
-    const { getUserInput, setIsLoading, setSortBooks, filterByYear } = props;
+    const { setBookTitle, setUserSortChoice, setUserFilterChoice, setIsLoading, filterByYear } = props;
 
     const [ input, setInput ] = useState('');
-    const [ sortOption, setSortOption] = useState('');
-    const [ filterOption, setFilterOption ] = useState('');
+    const [ sortOption, setSortOption] = useState('placeholder');
+    const [ filterOption, setFilterOption ] = useState('placeholder');
 
     // filterByYear state includes the array which was passed from app.js after mapping over the filtered response array to return an array with objects of book published years and its uniqye key.
     // we are sorting publishe year from earliest to latest.
@@ -24,21 +24,23 @@ const Form = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        getUserInput(input);
+        setBookTitle(input);
         setInput('');
         setIsLoading(true);
-        setSortOption('');
-        setFilterOption('');
+        setSortOption('placeholder');
+        setFilterOption('placeholder');
+        setUserSortChoice('');
+        setUserFilterChoice();
     }
 
     const handleChange = (event) => {
         setSortOption(event.target.value);
-        setSortBooks(event.target.value);
+        setUserSortChoice(event.target.value);
     }
 
     const handleFilterChange= (event) => {
-        console.log(event.target.value);
         setFilterOption(event.target.value);
+        setUserFilterChoice(event.target.value);
     }
 
     return (
@@ -52,8 +54,9 @@ const Form = (props) => {
                 </form>
                 
                 <form className="form-select">
-                    <label htmlFor="sortData">Sort by</label>
+                    <label htmlFor="sortData" className="sr-only">Sort by</label>
                     <select name="sortData" id="sortData" value={sortOption} onChange={handleChange}>
+                        <option value="placeholder" disabled>sort by</option>
                         <option value="none">none</option>
                         <option value="sortByYear">year</option>
                         <option value="sortByTitle">title</option>
@@ -61,13 +64,14 @@ const Form = (props) => {
                 </form>
 
                 <form className="form-select">
-                    <label htmlFor="filterData">Filter by year</label>
+                    <label htmlFor="filterData" className="sr-only">Filter by year</label>
                     <select name="filterData" id="filterData" value={filterOption} onChange={handleFilterChange}>
+                        <option value="placeholder" disabled>filter by year</option>
                         <option value="none">none</option>
                         {/* mapping the array for available book published years */}
                         {sortFilterArray.map((object) => {
                             const { year, key} = object;
-                            // destructuing values from filteredObj
+                            // destructuing values from object
                             return(
                                 <option value={year} key={key}>{year}</option>
                             )
@@ -79,4 +83,4 @@ const Form = (props) => {
     )
 }
 
-export default Form;
+export default Forms;

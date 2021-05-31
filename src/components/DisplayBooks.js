@@ -6,27 +6,20 @@ import SortByYear from './SortByYear';
 
 const DisplayBooks = (props) => {
 
-    const { books, bookTitle, isLoading, sortBooks } = props;
-    // destructuring from props
+    const { books, bookTitle, userSortChoice} = props;
+    // destructuring from 
 
     return(
         <section>
             {
-            isLoading
-            ?<div className='loadingBar'>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-
-            :books.length === 0
+            books.length === 0
             ?<div className="error-message">
                 <p>No books found for '<strong>{bookTitle}</strong>'..Please try again or check back later!</p>
             </div>
 
-            :sortBooks === 'sortByTitle'
+            :userSortChoice === 'sortByTitle'
             ?<SortByTitle books={books} bookTitle={bookTitle} />
-            :sortBooks === 'sortByYear'
+            :userSortChoice === 'sortByYear'
             ?<SortByYear books={books} bookTitle={bookTitle} />
             :
             <>
