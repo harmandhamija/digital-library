@@ -52,7 +52,9 @@ const Forms = (props) => {
                     <input type="text" name="EnterBookTitle" id="EnterBookTitle" value ={input} placeholder="search for a book" onChange={handleInput} required></input>
                     <button type="submit">Search</button>
                 </form>
+            </div>
                 
+            <div className="form-container2">
                 <form className="form-select">
                     <label htmlFor="sortData" className="sr-only">Sort by</label>
                     <select name="sortData" id="sortData" value={sortOption} onChange={handleChange}>

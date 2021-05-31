@@ -9,20 +9,22 @@ import Filter from './components/Filter';
 function App() {
 
   const [bookTitle, setBookTitle] = useState('The Great Gatsby');
+  // this state contains user input from the search form.
+
   const [books, setBooks] = useState([]);
+  // this array contains response from the api
+
   const [userSortChoice, setUserSortChoice] = useState('');
   // this array will be set with user sort choice
 
   const [isLoading, setIsLoading] = useState(true);
+  // this contains loading state
 
   const [filterByYear, setFilterByYear] = useState([]);
   // array for published years of books to place for form's select options to choose from!
 
   const [userFilterChoice, setUserFilterChoice] = useState();
   // this array will be set with user filter choice!
-
-  // const [filtererdResults, setfilteredResults] = useState([]);
-  // // set this array with filtered results based on user filter selection!
 
   useEffect(() => {
     axios({
@@ -36,21 +38,21 @@ function App() {
       response = response.data.docs
       const filteredResponse = response.filter((book)=> {
         return book.author_name && book.publish_year && book.isbn;
-        // filtering objects with properties of author_name, publish_year & isbn
+        // filtering api response to get objects with properties of author_name, publish_year & isbn
       })
       const filteredBooksArray = [...filteredResponse.slice(0, 20)];
       // limit the results to 20.
       setBooks(filteredBooksArray);
       setIsLoading(false);
+      // setting loading state to false once we get results back from the api to display on page.
 
-      // mapping over filtered array to get book published years & key for filtering results
-      // map always return a new array with the properties returned from it, new array is bookPublishedYear
-      const bookPublishedYear = filteredBooksArray.map((filteredBook)=> {
-        return {year: filteredBook.publish_year[0], key: filteredBook.key};
-        // returned an object with year & key which is passed to Form.js component for filterByYear form options.
-        // this could have been done by pushing an object in the new array as well, but this is the option which I felt more comfortbale with.
-        // key will be needed when mapping over the object for options
+      const bookPublishedYear = filteredBooksArray.map((filteredBook) => {
+        return { year: filteredBook.publish_year[0], key: filteredBook.key };
       })
+      // mapping over filtered array to get just book's published year & key for filtering results
+      // returned an object with year & key which is passed to Form.js component for filterByYear form's select options(dynamic value).
+      // key will be needed when mapping over the object for options
+
       const set = new Set();
       // set is new object type to create unique values from an array.
       const uniqueYearArray = bookPublishedYear.filter((year) => {
@@ -59,18 +61,22 @@ function App() {
         return !duplicate;
       })
       setFilterByYear(uniqueYearArray);
+      // uniqueYearArray includes user year choice w/o repeated values
+      // this part is done to remove repeated(duplicate) year value from bookPublishedYear.
     }).catch((error) => {
       alert("No data received.Please try again later!");
       setIsLoading(false);
+      // setting loading state to false again if we dont receive results from api & to alert the user with error message.
     })
   }, [bookTitle]);
 
-  const copyArray = [...books];
+  const copyBooks = [...books];
 
-  const filteredBooksByYearArray = copyArray.filter((book) => {
+  const filteredBooksByYearArray = copyBooks.filter((book) => {
     return book.publish_year[0] == userFilterChoice;
   })
-  // filtered array with user filter choice of year.
+  // filtered array which includes books with user filter choice of year.
+
   return (
     <div className="app">
       <header>

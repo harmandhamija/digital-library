@@ -105,8 +105,13 @@ form button:hover{
   margin-top: 20vh;
 }
 
-.form-select{
+.form-container2{
+  display: flex;
   margin-top: 2rem;
+}
+
+.form-select{
+  margin: 0 1rem;
   font-size: 1.3rem;
 }
 
