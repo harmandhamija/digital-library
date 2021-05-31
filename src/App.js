@@ -47,11 +47,18 @@ function App() {
       // map always return a new array with the properties returned from it, new array is bookPublishedYear
       const bookPublishedYear = filteredBooksArray.map((filteredBook)=> {
         return {year: filteredBook.publish_year[0], key: filteredBook.key};
-                // returned an object with year & key which is passed to Form.js component for filterByYear form options.
-                // this could have been done by pushing an object in the new array as well, but this is the option which I felt more comfortbale with.
-                // key will be needed when mapping over the object for options
+        // returned an object with year & key which is passed to Form.js component for filterByYear form options.
+        // this could have been done by pushing an object in the new array as well, but this is the option which I felt more comfortbale with.
+        // key will be needed when mapping over the object for options
       })
-      setFilterByYear(bookPublishedYear);
+      const set = new Set();
+      // set is new object type to create unique values from an array.
+      const uniqueYearArray = bookPublishedYear.filter((year) => {
+        const duplicate = set.has(year.year);
+        set.add(year.year)
+        return !duplicate;
+      })
+      setFilterByYear(uniqueYearArray);
     }).catch((error) => {
       alert("No data received.Please try again later!");
       setIsLoading(false);
