@@ -10,9 +10,9 @@ const Forms = (props) => {
     const [ filterOption, setFilterOption ] = useState('placeholder');
 
     // filterByYear state includes the array which was passed from app.js after mapping over the filtered response array to return an array with objects of book published years and its uniqye key.
-    // we are sorting publishe year from earliest to latest.
+    // we are sorting published year from latest to earliest.
     const sortFilterArray = filterByYear.sort((a,b) => {
-        if (b.year < a.year)
+        if (a.year < b.year)
             return 1;
         else
             return -1;
