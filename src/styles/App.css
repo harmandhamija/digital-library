@@ -88,14 +88,23 @@ form input{
   width: 75%;
 }
 
+form input:focus{
+  box-shadow: 0 .5rem 0.5rem lightgray;
+}
+
 form button{
   padding: 8px 15px;
   background-color: #cfbaa6;
   transition: all 0.8s ease;
 }
 
-form button:hover{
+form button:hover,
+form button:focus{
   background-color: #c7b2d3;
+}
+
+.auto-complete p{
+  cursor: pointer;
 }
 
 .form-section{
@@ -184,9 +193,9 @@ main{
   transition: all 0.8s ease;
 } */
 
-.book-save button:hover{
+/* .book-save button:hover{
   background-color: #c7b2d3;
-}
+} */
 
 .loadingBar{
   display: flex;

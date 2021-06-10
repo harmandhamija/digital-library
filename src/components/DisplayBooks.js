@@ -7,7 +7,7 @@ import SortByYear from './SortByYear';
 const DisplayBooks = (props) => {
 
     const { books, bookTitle, userSortChoice} = props;
-    // destructuring from 
+    // destructuring from props
 
     return(
         <section>

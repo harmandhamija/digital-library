@@ -4,7 +4,7 @@ import { useState } from 'react';
 const Forms = (props) => {
 
     const { setBookTitle, setUserSortChoice, setUserFilterChoice, setIsLoading, filterByYear } = props;
-
+    
     const [ input, setInput ] = useState('');
     const [ sortOption, setSortOption] = useState('placeholder');
     const [ filterOption, setFilterOption ] = useState('placeholder');
@@ -58,8 +58,8 @@ const Forms = (props) => {
                 <form className="form-select">
                     <label htmlFor="sortData" className="sr-only">Sort by</label>
                     <select name="sortData" id="sortData" value={sortOption} onChange={handleChange}>
-                        <option value="placeholder" disabled>sort by</option>
-                        <option value="none">none</option>
+                        <option value="placeholder" disabled>Sort by</option>
+                        <option value="none">default</option>
                         <option value="sortByYear">year</option>
                         <option value="sortByTitle">title</option>
                     </select>
@@ -68,8 +68,8 @@ const Forms = (props) => {
                 <form className="form-select">
                     <label htmlFor="filterData" className="sr-only">Filter by year</label>
                     <select name="filterData" id="filterData" value={filterOption} onChange={handleFilterChange}>
-                        <option value="placeholder" disabled>filter by year</option>
-                        <option value="none">none</option>
+                        <option value="placeholder" disabled>Filter by year</option>
+                        <option value="none">default</option>
                         {/* mapping the array for available book published years */}
                         {sortFilterArray.map((object) => {
                             const { year, key} = object;

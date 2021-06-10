@@ -6,7 +6,9 @@ import DisplayBooks from './components/DisplayBooks';
 import Footer from './components/Footer';
 import Filter from './components/Filter';
 
-function App() {
+const App = () => {
+
+  // if react state changes in the parent component(App.js), every sinhle sub component would re-render by default. Thats why, when we console.log(books) in forms.js, it renders thrice because bookTitle, books & isLoading state changes in the app component.
 
   const [bookTitle, setBookTitle] = useState('The Great Gatsby');
   // this state contains user input from the search form.
@@ -71,7 +73,7 @@ function App() {
   }, [bookTitle]);
 
   const copyBooks = [...books];
-
+  
   const filteredBooksByYearArray = copyBooks.filter((book) => {
     return book.publish_year[0] == userFilterChoice;
   })
