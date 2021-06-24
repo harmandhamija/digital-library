@@ -1,5 +1,6 @@
 // Forms.js
 import { useState } from 'react';
+// import AutoComplete from './AutoComplete';
 
 const Forms = (props) => {
 
@@ -52,6 +53,7 @@ const Forms = (props) => {
                     <input type="text" name="EnterBookTitle" id="EnterBookTitle" value ={input} placeholder="search for a book" onChange={handleInput} required></input>
                     <button type="submit">Search</button>
                 </form>
+                {/* <AutoComplete input={input} setInput={setInput} /> */}
             </div>
                 
             <div className="form-container2">
@@ -72,7 +74,7 @@ const Forms = (props) => {
                         <option value="none">default</option>
                         {/* mapping the array for available book published years */}
                         {sortFilterArray.map((object) => {
-                            const { year, key} = object;
+                            const { year, key } = object;
                             // destructuing values from object
                             return(
                                 <option value={year} key={key}>{year}</option>
